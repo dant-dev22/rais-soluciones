@@ -1,0 +1,512 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuchaCode - Software Services Landing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background-color: #FAF8F3;
+            color: #1F1F1F;
+        }
+
+        .mobile-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .mobile-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hover Section Style */
+        .hover-section {
+            transition: border 0.3s ease;
+        }
+
+        .hover-section:hover {
+            border: 2px solid #E8B4B8;
+            border-radius: 8px;
+        }
+
+        /* Clickable Section Style */
+        .clickable-section {
+            cursor: pointer;
+        }
+
+        .clickable-section:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Header Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(250, 248, 243, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 154, 0.2);
+        }
+
+        /* Hero Section */
+        .hero-bg {
+            background: linear-gradient(135deg, #FAF8F3 0%, #F5F3F0 50%, #EFE9E0 100%);
+            position: relative;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 50 Q50 20 80 50 T50 80" stroke="%23D4AF9A" stroke-width="0.5" fill="none" opacity="0.15"/><circle cx="30" cy="30" r="3" fill="%23E8B4B8" opacity="0.1"/><circle cx="70" cy="70" r="2" fill="%23D4AF9A" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        /* Gradient Backgrounds for Images */
+        .gradient-placeholder-1 {
+            background: linear-gradient(135deg, #D4AF9A 0%, #E8B4B8 100%);
+        }
+
+        .gradient-placeholder-2 {
+            background: linear-gradient(135deg, #B8956A 0%, #D4AF9A 100%);
+        }
+
+        .gradient-placeholder-3 {
+            background: linear-gradient(135deg, #FAF8F3 0%, #D4AF9A 100%);
+        }
+
+        .gradient-placeholder-4 {
+            background: linear-gradient(135deg, #E8B4B8 0%, #FAF8F3 100%);
+        }
+
+        /* Cards */
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 154, 0.3);
+        }
+
+        .card-hover:hover {
+            border: 1px solid rgba(212, 175, 154, 0.6);
+            box-shadow: 0 10px 30px rgba(212, 175, 154, 0.1);
+        }
+
+        /* CTA Button */
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF9A 0%, #B8956A 100%);
+            color: white;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 154, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #E8B4B8 0%, #D4A0A8 100%);
+            color: white;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(232, 180, 184, 0.3);
+        }
+
+        /* Section Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 154, 0.3), transparent);
+        }
+
+        /* Input Fields */
+        input, textarea {
+            background: #FFFFFF;
+            border: 1px solid rgba(212, 175, 154, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border: 1px solid #D4AF9A;
+            box-shadow: 0 0 0 3px rgba(212, 175, 154, 0.1);
+        }
+
+        /* Badge */
+        .badge-gold {
+            background: rgba(212, 175, 154, 0.15);
+            color: #B8956A;
+            border: 1px solid rgba(212, 175, 154, 0.3);
+        }
+
+        /* Icon Styling */
+        .icon-gold {
+            color: #D4AF9A;
+        }
+
+        .icon-red {
+            color: #E8B4B8;
+        }
+
+        /* Footer */
+        footer {
+            background: #1F1F1F;
+            color: #FAF8F3;
+        }
+
+        /* Typography */
+        h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Avatar Style */
+        .avatar-ring {
+            border: 3px solid #D4AF9A;
+            box-shadow: 0 10px 30px rgba(212, 175, 154, 0.2);
+        }
+
+        /* Feature List */
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .feature-item i {
+            color: #D4AF9A;
+            margin-top: 4px;
+        }
+
+        /* WhatsApp Button */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #20BA5C 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Section Padding Mobile */
+        section {
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 32px 16px;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.mr-2{margin-right:0.5rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.h-10{height:2.5rem}.h-12{height:3rem}.h-32{height:8rem}.h-8{height:2rem}.h-96{height:24rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-8{width:2rem}.w-full{width:100%}.max-w-md{max-width:28rem}.resize-none{resize:none}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-t{border-top-width:1px}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-gray-50{--tw-gradient-from:#f9fafb var(--tw-gradient-from-position);--tw-gradient-to:rgb(249 250 251 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-rose-100{--tw-gradient-from:#ffe4e6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 228 230 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-100{--tw-gradient-from:#fef9c3 var(--tw-gradient-from-position);--tw-gradient-to:rgb(254 249 195 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-600{--tw-gradient-from:#ca8a04 var(--tw-gradient-from-position);--tw-gradient-to:rgb(202 138 4 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-gray-50{--tw-gradient-to:#f9fafb var(--tw-gradient-to-position)}.to-rose-200{--tw-gradient-to:#fecdd3 var(--tw-gradient-to-position)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.to-yellow-200{--tw-gradient-to:#fef08a var(--tw-gradient-to-position)}.to-yellow-700{--tw-gradient-to:#a16207 var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{object-fit:cover}.p-6{padding:1.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:0.025em}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-yellow-600:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(202 138 4 / var(--tw-ring-opacity, 1))}</style></head>
+<body>
+    <div class="mobile-container">
+        <!-- Header -->
+        <header class="hover-section">
+            <div class="max-w-md mx-auto px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-mask text-white text-lg"></i>
+                    </div>
+                    <span class="font-bold text-xl text-gray-900">LuchaCode</span>
+                </div>
+                <button class="text-gray-600 hover:text-gray-900 transition">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero-section" class="hero-bg hover-section clickable-section">
+            <div class="max-w-md mx-auto h-96 flex flex-col justify-center items-center relative z-10">
+                <div class="text-center space-y-6">
+                    <div class="inline-block px-4 py-2 rounded-full badge-gold">
+                        <span class="text-sm font-medium">🎭 Crafted with Cultural Pride</span>
+                    </div>
+                    <h1 class="text-gray-900 leading-tight">
+                        Software Built to <span class="bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text text-transparent">Impress</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg">
+                        Landing pages and e-commerce solutions that capture the essence of your brand.
+                    </p>
+                    <button class="btn-primary w-full py-4 rounded-lg font-semibold transition">
+                        Start Your Project <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services-section" class="hover-section clickable-section bg-white">
+            <div class="max-w-md mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-gray-900 mb-4">Our Services</h2>
+                    <p class="text-gray-600">Specialized software solutions tailored to your needs</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Landing Pages Card -->
+                    <div class="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl p-6 card-hover">
+                        <div class="mb-4 h-32 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-globe text-4xl icon-gold"></i>
+                        </div>
+                        <h3 class="text-gray-900 mb-3">Landing Pages</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Clean, fast, and conversion-focused landing pages that tell your story and drive action.
+                        </p>
+                        <div class="space-y-2 mb-6">
+                            <div class="feature-item">
+                                <i class="fas fa-check text-sm"></i>
+                                <span class="text-sm text-gray-700">Responsive Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check text-sm"></i>
+                                <span class="text-sm text-gray-700">SEO Optimized</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check text-sm"></i>
+                                <span class="text-sm text-gray-700">Fast Loading Times</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg text-sm font-semibold transition">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <!-- E-Commerce Card -->
+                    <div class="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl p-6 card-hover">
+                        <div class="mb-4 h-32 bg-gradient-to-br from-rose-100 to-rose-200 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-4xl icon-red"></i>
+                        </div>
+                        <h3 class="text-gray-900 mb-3">E-Commerce Solutions</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Complete online store solutions with payment integration, inventory management, and more.
+                        </p>
+                        <div class="space-y-2 mb-6">
+                            <div class="feature-item">
+                                <i class="fas fa-check text-sm"></i>
+                                <span class="text-sm text-gray-700">Secure Payments</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check text-sm"></i>
+                                <span class="text-sm text-gray-700">Inventory Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check text-sm"></i>
+                                <span class="text-sm text-gray-700">Analytics Dashboard</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary w-full py-2 rounded-lg text-sm font-semibold transition">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="max-w-md mx-auto w-full px-6">
+            <div class="divider"></div>
+        </div>
+
+        <!-- Quote Section -->
+        <section id="quote-section" class="hover-section clickable-section bg-gradient-to-b from-gray-50 to-white">
+            <div class="max-w-md mx-auto text-center space-y-8">
+                <div>
+                    <p class="text-gray-600 text-lg mb-2 italic">
+                        "Our team combines technical expertise with cultural creativity to deliver exceptional digital experiences."
+                    </p>
+                    <div class="flex items-center justify-center gap-2 mt-6">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg" alt="Team Member" class="w-12 h-12 rounded-full avatar-ring object-cover">
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-900 text-sm">Marco Rivera</p>
+                            <p class="text-xs text-gray-500">Founder &amp; Lead Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-6">
+                    <h2 class="text-gray-900 mb-4">Ready to Begin?</h2>
+                    <p class="text-gray-600 mb-8">
+                        Get a free quote and discuss your project with our team. We're just a message away.
+                    </p>
+                    <a href="https://wa.me/1234567890?text=Hello%20LuchaCode%21%20I%20want%20to%20discuss%20a%20project" target="_blank" class="btn-whatsapp block w-full py-4 rounded-lg font-semibold transition text-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="max-w-md mx-auto w-full px-6">
+            <div class="divider"></div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="hover-section clickable-section bg-white">
+            <div class="max-w-md mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-gray-900 mb-2">Get In Touch</h2>
+                    <p class="text-gray-600">We'd love to hear from you. Drop us a message and we'll get back shortly.</p>
+                </div>
+
+                <form class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Full Name</label>
+                        <input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-600 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
+                        <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-600 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Message</label>
+                        <textarea placeholder="Tell us about your project..." rows="5" class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-600 transition resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold transition">
+                        Send Message
+                    </button>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt icon-gold text-lg"></i>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide">Location</p>
+                                <p class="text-gray-900 font-medium">Mexico City, Mexico</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope icon-gold text-lg"></i>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide">Email</p>
+                                <p class="text-gray-900 font-medium">hello@luchacode.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone icon-gold text-lg"></i>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide">Phone</p>
+                                <p class="text-gray-900 font-medium">+52 555 1234 5678</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="hover-section">
+            <div class="max-w-md mx-auto px-6 py-8">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gradient-to-br from-yellow-600 to-yellow-700 rounded flex items-center justify-center">
+                            <i class="fas fa-mask text-white text-sm"></i>
+                        </div>
+                        <span class="font-bold text-lucha-cream">LuchaCode</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="divider mb-6"></div>
+
+                <div class="space-y-3 text-center">
+                    <p class="text-gray-500 text-xs">
+                        © 2024 LuchaCode. All rights reserved.
+                    </p>
+                    <p class="text-gray-600 text-xs">
+                        Crafted with <span class="text-red-400">♥</span> in Mexico City
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.clickable-section').forEach(section => {
+            section.addEventListener('click', function() {
+                window.parent.postMessage({
+                    action: 'sectionClicked',
+                    id: this.id,
+                    html: this.outerHTML,
+                }, '*');
+            });
+        });
+    </script>
+
+
+</body></html>

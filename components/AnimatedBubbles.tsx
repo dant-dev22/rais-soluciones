@@ -16,12 +16,12 @@ interface BubbleProps {
 
 // Estilos de las burbujas - RAIS Studio Design System
 const BUBBLE_STYLES = {
-  // Colores y opacidades - usando RAIS_TERRACOTTA (#C4623A)
+  // Colores y opacidades - Clay Orange (#B85E3C), terrosa y luminosa
   color: {
-    primary: 'rgba(196, 98, 58, 0.08)', // RAIS_TERRACOTTA con opacidad muy baja
-    secondary: 'rgba(196, 98, 58, 0.15)', // RAIS_TERRACOTTA con opacidad baja
-    shadow: 'rgba(196, 98, 58, 0.03)', // Color de sombra exterior
-    shadowInset: 'rgba(196, 98, 58, 0.02)', // Color de sombra interior
+    primary: 'rgba(184, 94, 60, 0.1)',
+    secondary: 'rgba(184, 94, 60, 0.18)',
+    shadow: 'rgba(184, 94, 60, 0.04)',
+    shadowInset: 'rgba(184, 94, 60, 0.03)',
   },
   // Opacidades para animación
   opacity: {

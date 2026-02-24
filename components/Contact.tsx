@@ -8,7 +8,7 @@ import { useRef } from 'react'
 // Estilos modulares del formulario - RAIS Studio Design System
 const FORM_STYLES = {
   colors: {
-    inputBorder: 'border-rais-charcoal/50',
+    inputBorder: 'border-rais-soft-gold/40',
     inputBorderFocus: 'border-rais-terracotta',
     inputBorderError: 'border-rais-error',
     inputBg: 'bg-rais-charcoal',
@@ -21,7 +21,7 @@ const FORM_STYLES = {
     successText: 'text-rais-success',
     button: 'bg-rais-terracotta',
     buttonHover: 'hover:bg-rais-terracotta/90',
-    buttonText: 'text-rais-offwhite',
+    buttonText: 'text-rais-on-accent',
   },
   spacing: {
     section: 'py-16 sm:py-20 md:py-24',

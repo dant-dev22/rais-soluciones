@@ -8,22 +8,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // RAIS Studio Design System
-        'rais-black': '#0E0E0E',
-        'rais-charcoal': '#1A1A1A',
-        'rais-offwhite': '#F4F3EF',
-        'rais-terracotta': '#C4623A',
-        'rais-oxide-red': '#8E2C1E',
-        'rais-soft-gold': '#C9A96A',
-        'rais-success': '#3F6F52',
-        'rais-warning': '#C98B2B',
-        'rais-error': '#9B2C2C',
-        'rais-info': '#3A5A7A',
-        // Legacy support (will be removed)
-        'pew-orange': '#C4623A', // Mapped to terracotta
+        // RAIS Studio Design System - Earthy & luminous
+        // Base
+        'rais-black': '#EEF2EC', // Sage Light (primary bg)
+        'rais-charcoal': '#F3EFE7', // Warm Beige (secondary bg)
+        'rais-offwhite': '#1F2A22', // Deep Soil (primary text)
+        'rais-on-accent': '#FDFCFA', // Text on CTAs / colored bg
+
+        // Primary accent - Clay Orange
+        'rais-terracotta': {
+          DEFAULT: '#B85E3C',
+          hover: '#C46A45',
+          active: '#A35435',
+        },
+
+        // Secondary accents
+        'rais-oxide-red': '#3E5F4B', // Forest Green
+        'rais-soft-gold': '#D8C9A8', // Soft Sand
+
+        // UI states - Natural
+        'rais-success': '#4F7A5A',
+        'rais-warning': '#C8A24D',
+        'rais-error': '#9E3A2F',
+        'rais-info': '#5A7D7C',
+
+        'pew-orange': '#B85E3C', // → Clay Orange
       },
     },
   },
   plugins: [],
 }
-

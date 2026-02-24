@@ -24,7 +24,7 @@ export default function Quote() {
               "Nuestro equipo combina experiencia técnica con creatividad cultural para entregar experiencias digitales excepcionales."
             </p>
             <div className="flex items-center justify-center gap-3 mt-8">
-              <div className="w-12 h-12 rounded-full bg-rais-terracotta flex items-center justify-center text-rais-offwhite font-bold">
+              <div className="w-12 h-12 rounded-full bg-rais-terracotta flex items-center justify-center text-rais-on-accent font-bold">
                 MR
               </div>
               <div className="text-left">

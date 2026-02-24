@@ -14,11 +14,11 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-rais-black/98 backdrop-blur-sm border-b border-rais-charcoal/50">
+    <header className="sticky top-0 z-50 bg-rais-black/98 backdrop-blur-sm border-b border-rais-soft-gold/40">
       <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <div className="w-10 h-10 bg-rais-terracotta rounded-lg flex items-center justify-center">
-            <span className="text-rais-offwhite font-bold text-lg">R</span>
+            <span className="text-rais-on-accent font-bold text-lg">R</span>
           </div>
           <span className="text-xl sm:text-2xl font-bold text-rais-offwhite">RAIS Studio</span>
         </Link>
@@ -75,7 +75,7 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-rais-charcoal border-t border-rais-charcoal/50">
+        <div className="md:hidden bg-rais-charcoal border-t border-rais-soft-gold/40">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <a
               href="#servicios"

@@ -61,9 +61,9 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-rais-charcoal border border-rais-charcoal/50 rounded-2xl p-6 hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 transition-all"
+      className="bg-rais-charcoal border border-rais-soft-gold/40 rounded-2xl p-6 hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 transition-all"
     >
-      <div className={`mb-4 h-32 ${service.iconBg} rounded-xl flex items-center justify-center border border-rais-charcoal/30`}>
+      <div className={`mb-4 h-32 ${service.iconBg} rounded-xl flex items-center justify-center border border-rais-soft-gold/30`}>
         <span className="text-5xl">{service.icon}</span>
       </div>
       <h3 className="text-xl font-semibold text-rais-offwhite mb-3">{service.title}</h3>
@@ -78,7 +78,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           </div>
         ))}
       </div>
-      <button className="w-full py-2 rounded-lg bg-rais-terracotta text-rais-offwhite text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all">
+      <button className="w-full py-2 rounded-lg bg-rais-terracotta text-rais-on-accent text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all">
         Saber Más
       </button>
     </motion.div>

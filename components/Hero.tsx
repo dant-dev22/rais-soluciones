@@ -19,7 +19,7 @@ export default function Hero() {
             className="flex justify-center"
           >
             <div className="w-16 h-16 bg-rais-terracotta rounded-lg flex items-center justify-center">
-              <span className="text-rais-offwhite font-bold text-2xl">R</span>
+              <span className="text-rais-on-accent font-bold text-2xl">R</span>
             </div>
           </motion.div>
           
@@ -51,7 +51,7 @@ export default function Hero() {
           >
             <button
               onClick={handleCTAClick}
-              className="inline-block bg-rais-terracotta text-rais-offwhite px-8 py-4 rounded-lg font-semibold text-lg hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all"
+              className="inline-block bg-rais-terracotta text-rais-on-accent px-8 py-4 rounded-lg font-semibold text-lg hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all"
             >
               Inicia Tu Proyecto <span className="ml-2">→</span>
             </button>

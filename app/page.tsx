@@ -215,7 +215,7 @@ function ProjectCarousel() {
       <div className="flex justify-center items-center gap-4 mt-8">
         <button
           onClick={prevProject}
-          className="p-3 rounded-full bg-rais-charcoal border border-rais-terracotta/30 shadow-lg hover:bg-rais-terracotta text-rais-offwhite hover:text-rais-offwhite transition-colors"
+          className="p-3 rounded-full bg-rais-charcoal border border-rais-terracotta/30 shadow-lg hover:bg-rais-terracotta text-rais-offwhite hover:text-rais-on-accent transition-colors"
           aria-label="Proyecto anterior"
         >
           <svg
@@ -249,7 +249,7 @@ function ProjectCarousel() {
 
         <button
           onClick={nextProject}
-          className="p-3 rounded-full bg-rais-charcoal border border-rais-terracotta/30 shadow-lg hover:bg-rais-terracotta text-rais-offwhite hover:text-rais-offwhite transition-colors"
+          className="p-3 rounded-full bg-rais-charcoal border border-rais-terracotta/30 shadow-lg hover:bg-rais-terracotta text-rais-offwhite hover:text-rais-on-accent transition-colors"
           aria-label="Siguiente proyecto"
         >
           <svg

@@ -2,12 +2,12 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-rais-black text-rais-offwhite py-8 sm:py-12 border-t border-rais-charcoal/50" role="contentinfo">
+    <footer className="bg-rais-black text-rais-offwhite py-8 sm:py-12 border-t border-rais-soft-gold/40" role="contentinfo">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-rais-terracotta rounded flex items-center justify-center">
-              <span className="text-rais-offwhite font-bold text-sm">R</span>
+              <span className="text-rais-on-accent font-bold text-sm">R</span>
             </div>
             <span className="font-bold text-lg text-rais-offwhite">RAIS Studio</span>
           </div>
@@ -42,7 +42,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="border-t border-rais-charcoal/50 pt-8">
+        <div className="border-t border-rais-soft-gold/40 pt-8">
           <div className="space-y-3 text-center">
             <p className="text-rais-offwhite/60 text-sm">
               © 2026 RAIS Studio. Todos los derechos reservados.

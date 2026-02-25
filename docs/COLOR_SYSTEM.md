@@ -1,4 +1,4 @@
-# RAIS Studio — Color System (Earthy & Luminous)
+# RAIS Labs — Color System (Earthy & Luminous)
 
 **RAIS como raíz, origen y crecimiento.** Paleta terrosa y luminosa, identidad conectada con lo natural.
 

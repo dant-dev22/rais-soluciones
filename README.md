@@ -91,7 +91,7 @@ rais-soluciones/
 
 ## Paleta de colores
 
-Paleta terrosa y luminosa del design system RAIS Studio. Refuerza el concepto de **raíz, origen y crecimiento**; fondos claros, acentos orgánicos y calma visual.
+Paleta terrosa y luminosa del design system RAIS Labs. Refuerza el concepto de **raíz, origen y crecimiento**; fondos claros, acentos orgánicos y calma visual.
 
 ### Base (fondos y texto)
 

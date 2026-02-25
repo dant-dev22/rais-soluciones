@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="w-8 h-8 bg-rais-terracotta rounded flex items-center justify-center">
               <span className="text-rais-on-accent font-bold text-sm">R</span>
             </div>
-            <span className="font-bold text-lg text-rais-offwhite">RAIS Studio</span>
+            <span className="font-bold text-lg text-rais-offwhite">RAIS Labs</span>
           </div>
           <nav className="flex gap-4" aria-label="Redes sociales">
             <Link
@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="border-t border-rais-soft-gold/40 pt-8">
           <div className="space-y-3 text-center">
             <p className="text-rais-offwhite/60 text-sm">
-              © 2026 RAIS Studio. Todos los derechos reservados.
+              © 2026 RAIS Labs. Todos los derechos reservados.
             </p>
             <p className="text-rais-offwhite/50 text-sm">
               Creado con <span className="text-rais-terracotta">♥</span> en México

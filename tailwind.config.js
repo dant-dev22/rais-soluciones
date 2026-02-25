@@ -7,8 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        outfit: ['var(--font-outfit)', 'sans-serif'],
+      },
       colors: {
-        // RAIS Studio Design System - Earthy & luminous
+        // RAIS Labs Design System - Earthy & luminous
         // Base
         'rais-black': '#EEF2EC', // Sage Light (primary bg)
         'rais-charcoal': '#F3EFE7', // Warm Beige (secondary bg)

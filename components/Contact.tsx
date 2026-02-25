@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-// Estilos modulares del formulario - RAIS Studio Design System
+// Estilos modulares del formulario - RAIS Labs Design System
 const FORM_STYLES = {
   colors: {
     inputBorder: 'border-rais-soft-gold/40',

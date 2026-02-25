@@ -1,22 +1,23 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
+
+const inter = Inter({ subsets: ['latin'] })
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 import Footer from '@/components/Footer'
 import AnimatedBubbles from '@/components/AnimatedBubbles'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
   title: {
-    default: 'RAIS Studio - Soluciones Digitales',
-    template: '%s | RAIS Studio',
+    default: 'RAIS Labs - Soluciones Digitales',
+    template: '%s | RAIS Labs',
   },
-  description: 'Agencia de soluciones digitales y producción de video/foto. Web, e-commerce, video y foto para eventos. Soluciones digitales con ritmo y técnica. Contacta con nosotros para tu proyecto.',
-  keywords: ['agencia digital', 'producción video', 'fotografía eventos', 'desarrollo web', 'e-commerce', 'RAIS Studio'],
-  authors: [{ name: 'RAIS Studio' }],
-  creator: 'RAIS Studio',
-  publisher: 'RAIS Studio',
+  description: 'Agencia de soluciones digitales enfocada en desarrollo web y e-commerce. Soluciones con ritmo y técnica. Contacta con nosotros para tu proyecto.',
+  keywords: ['agencia digital', 'desarrollo web', 'sitios web', 'e-commerce', 'RAIS Labs'],
+  authors: [{ name: 'RAIS Labs' }],
+  creator: 'RAIS Labs',
+  publisher: 'RAIS Labs',
   formatDetection: {
     email: false,
     address: false,
@@ -30,14 +31,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     url: 'https://raisstudio.com',
-    title: 'RAIS Studio - Soluciones Digitales',
-    description: 'Agencia de soluciones digitales y producción de video/foto. Web, e-commerce, video y foto para eventos.',
-    siteName: 'RAIS Studio',
+    title: 'RAIS Labs - Soluciones Digitales',
+    description: 'Agencia de soluciones digitales enfocada en desarrollo web y e-commerce.',
+    siteName: 'RAIS Labs',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RAIS Studio - Soluciones Digitales',
-    description: 'Agencia de soluciones digitales y producción de video/foto. Web, e-commerce, video y foto para eventos.',
+    title: 'RAIS Labs - Soluciones Digitales',
+    description: 'Agencia de soluciones digitales enfocada en desarrollo web y e-commerce.',
   },
   robots: {
     index: true,
@@ -65,7 +66,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${outfit.variable}`}>
         <Header />
         <main className="min-h-screen relative">
           {children}

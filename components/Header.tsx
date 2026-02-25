@@ -20,7 +20,7 @@ export default function Header() {
           <div className="w-10 h-10 bg-rais-terracotta rounded-lg flex items-center justify-center">
             <span className="text-rais-on-accent font-bold text-lg">R</span>
           </div>
-          <span className="text-xl sm:text-2xl font-bold text-rais-offwhite">RAIS Studio</span>
+          <span className="text-xl sm:text-2xl font-bold text-rais-offwhite">RAIS Labs</span>
         </Link>
         
         {/* Desktop Navigation */}

@@ -1,4 +1,4 @@
-// RAIS Studio Design System - Color Tokens
+// RAIS Labs Design System - Color Tokens
 // Earthy & luminous palette — root, origin, growth
 // Single source of truth for all colors
 

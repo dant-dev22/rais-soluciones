@@ -14,7 +14,7 @@ interface BubbleProps {
   index: number
 }
 
-// Estilos de las burbujas - RAIS Studio Design System
+// Estilos de las burbujas - RAIS Labs Design System
 const BUBBLE_STYLES = {
   // Colores y opacidades - Clay Orange (#B85E3C), terrosa y luminosa
   color: {

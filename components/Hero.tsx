@@ -41,7 +41,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-rais-offwhite/70 max-w-2xl mx-auto"
           >
-            Video, foto, web y e-commerce para construir tu presencia digital.
+            Desarrollamos sitios web y soluciones e-commerce para construir tu presencia digital.
           </motion.p>
           
           <motion.div

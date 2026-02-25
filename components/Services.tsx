@@ -3,51 +3,35 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 
 const services = [
   {
-    icon: '🌐',
-    title: 'Landing Pages',
-    description: 'Páginas limpias, rápidas y enfocadas en conversión que cuentan tu historia y generan acción.',
-    features: [
-      'Diseño Responsive',
-      'Optimizado para SEO',
-      'Tiempos de Carga Rápidos',
-    ],
+    icon: '📄',
+    title: 'Single Page',
+    href: '/servicios/single-page',
+    description:
+      'Página de una sola vista, ideal para presentar tu proyecto o servicio de forma clara y directa.',
+    features: ['Diseño responsive', 'Optimización básica', 'Carga rápida'],
     iconBg: 'bg-rais-info/20',
   },
   {
-    icon: '🛒',
-    title: 'E-Commerce',
-    description: 'Soluciones completas de tienda online con integración de pagos, gestión de inventario y más.',
-    features: [
-      'Pagos Seguros',
-      'Gestión de Inventario',
-      'Panel de Analytics',
-    ],
-    iconBg: 'bg-rais-terracotta/20',
-  },
-  {
-    icon: '🎥',
-    title: 'Producción de Video',
-    description: 'Videos profesionales para eventos, comerciales y contenido digital que destacan tu marca.',
-    features: [
-      'Edición Profesional',
-      'Motion Graphics',
-      'Post-Producción',
-    ],
+    icon: '🌐',
+    title: 'Landing Page',
+    href: '/servicios/landing-page',
+    description:
+      'Landing page con varias secciones o pestañas, diseñada para convertir visitas en acciones concretas.',
+    features: ['Estructura orientada a conversión', 'Adaptada a móviles', 'SEO base'],
     iconBg: 'bg-rais-oxide-red/20',
   },
   {
-    icon: '📸',
-    title: 'Fotografía',
-    description: 'Fotografía profesional para eventos, productos y contenido de marca de alta calidad.',
-    features: [
-      'Fotografía de Eventos',
-      'Product Photography',
-      'Retoque Profesional',
-    ],
-    iconBg: 'bg-rais-soft-gold/20',
+    icon: '🛒',
+    title: 'E-commerce y Apps de Gestión',
+    href: '/servicios/ecommerce-gestion',
+    description:
+      'Tiendas online y sistemas de administración de datos para inventarios, registros y paneles internos.',
+    features: ['Tienda en línea', 'Gestión de datos e inventario', 'Paneles y reportes'],
+    iconBg: 'bg-rais-terracotta/20',
   },
 ]
 
@@ -78,9 +62,14 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           </div>
         ))}
       </div>
-      <button className="w-full py-2 rounded-lg bg-rais-terracotta text-rais-on-accent text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all">
+      <Link
+        href={service.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full py-2 rounded-lg bg-rais-terracotta text-rais-on-accent text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all text-center"
+      >
         Saber Más
-      </button>
+      </Link>
     </motion.div>
   )
 }

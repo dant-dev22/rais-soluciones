@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
-import Link from 'next/link'
+import { getWhatsAppUrl } from '@/utils/whatsapp'
 
 interface ServiceLayoutProps {
   title: string
@@ -45,13 +45,15 @@ export default function ServiceLayout({ title, image, children }: ServiceLayoutP
             <div className="text-rais-offwhite/80 leading-relaxed space-y-4 text-base sm:text-lg">
               {children}
             </div>
-            <Link
-              href="/#contacto"
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-rais-success text-rais-on-accent px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-rais-success/90 hover:shadow-lg hover:shadow-rais-success/20 hover:scale-[1.02] transition-all text-sm sm:text-base"
             >
               <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-              ¡Haz tu cotización ahora!
-            </Link>
+              Cotiza ahora tu proyecto
+            </a>
           </div>
         </div>
       </div>

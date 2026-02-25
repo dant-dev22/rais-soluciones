@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 import Footer from '@/components/Footer'
 import AnimatedBubbles from '@/components/AnimatedBubbles'
+import CookieBanner from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   title: {
@@ -73,6 +74,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <AnimatedBubbles />
+        <CookieBanner />
       </body>
     </html>
   )

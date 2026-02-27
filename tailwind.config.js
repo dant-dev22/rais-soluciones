@@ -8,34 +8,34 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        outfit: ['var(--font-outfit)', 'sans-serif'],
+        heading: ['var(--font-heading)', 'Space Grotesk', 'sans-serif'],
+        subheading: ['var(--font-subheading)', 'Sora', 'sans-serif'],
+        body: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        outfit: ['var(--font-heading)', 'Space Grotesk', 'sans-serif'],
       },
       colors: {
-        // RAIS Labs Design System - Earthy & luminous
-        // Base
-        'rais-black': '#EEF2EC', // Sage Light (primary bg)
-        'rais-charcoal': '#F3EFE7', // Warm Beige (secondary bg)
-        'rais-offwhite': '#1F2A22', // Deep Soil (primary text)
-        'rais-on-accent': '#FDFCFA', // Text on CTAs / colored bg
+        // Cyberpunk-tech design system
+        'rais-black': '#0B0F1A',
+        'rais-charcoal': '#111827',
+        'rais-offwhite': '#E5E7EB',
+        'rais-text-secondary': '#9CA3AF',
+        'rais-on-accent': '#0B0F1A',
 
-        // Primary accent - Clay Orange
         'rais-terracotta': {
-          DEFAULT: '#B85E3C',
-          hover: '#C46A45',
-          active: '#A35435',
+          DEFAULT: '#00F5FF',
+          hover: '#33F7FF',
+          active: '#00D4DE',
         },
 
-        // Secondary accents
-        'rais-oxide-red': '#3E5F4B', // Forest Green
-        'rais-soft-gold': '#D8C9A8', // Soft Sand
+        'rais-oxide-red': '#FF00C8',
+        'rais-soft-gold': '#FF00C8',
 
-        // UI states - Natural
-        'rais-success': '#4F7A5A',
-        'rais-warning': '#C8A24D',
-        'rais-error': '#9E3A2F',
-        'rais-info': '#5A7D7C',
+        'rais-success': '#22C55E',
+        'rais-warning': '#EAB308',
+        'rais-error': '#EF4444',
+        'rais-info': '#3B82F6',
 
-        'pew-orange': '#B85E3C', // → Clay Orange
+        'pew-orange': '#00F5FF',
       },
     },
   },

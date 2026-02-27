@@ -3,38 +3,55 @@
 @tailwind utilities;
 
 :root {
-  /* RAIS Labs Design System - Earthy & luminous */
-  /* Base */
-  --rais-black: #EEF2EC; /* Sage Light */
-  --rais-charcoal: #F3EFE7; /* Warm Beige */
-  --rais-offwhite: #1F2A22; /* Deep Soil */
-  --rais-on-accent: #FDFCFA;
+  /* Cyberpunk-tech design system */
+  /* Primary background */
+  --rais-black: #0B0F1A;
+  /* Secondary background (cards/sections) */
+  --rais-charcoal: #111827;
+  /* Text primary */
+  --rais-offwhite: #E5E7EB;
+  /* Text secondary */
+  --rais-text-secondary: #9CA3AF;
+  /* Text on accent buttons (dark for contrast on cyan) */
+  --rais-on-accent: #0B0F1A;
 
-  /* Primary accent - Clay Orange */
-  --rais-terracotta: #B85E3C;
-  --rais-terracotta-hover: #C46A45;
-  --rais-terracotta-active: #A35435;
+  /* Accent primary (buttons/highlights) */
+  --rais-terracotta: #00F5FF;
+  --rais-terracotta-hover: #33F7FF;
+  --rais-terracotta-active: #00D4DE;
 
-  /* Secondary accents */
-  --rais-oxide-red: #3E5F4B; /* Forest Green */
-  --rais-soft-gold: #D8C9A8; /* Soft Sand */
+  /* Accent secondary (interactive/details) */
+  --rais-oxide-red: #FF00C8;
+  --rais-soft-gold: #FF00C8;
 
-  /* UI states */
-  --rais-success: #4F7A5A;
-  --rais-warning: #C8A24D;
-  --rais-error: #9E3A2F;
-  --rais-info: #5A7D7C;
+  /* UI states - accessible on dark bg */
+  --rais-success: #22C55E;
+  --rais-warning: #EAB308;
+  --rais-error: #EF4444;
+  --rais-info: #3B82F6;
 
-  --foreground-rgb: 31, 42, 34; /* Deep Soil */
-  --background-start-rgb: 238, 242, 236; /* Sage Light */
-  --background-end-rgb: 243, 239, 231; /* Warm Beige */
+  --foreground-rgb: 229, 231, 235;
+  --background-start-rgb: 11, 15, 26;
+  --background-end-rgb: 17, 24, 39;
+}
+
+@layer base {
+  body {
+    color: var(--rais-offwhite);
+    background: var(--rais-black);
+    font-family: var(--font-inter), 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), 'Space Grotesk', sans-serif;
+  }
+
+  /* Subheadings - larger intro/description text */
+  p.text-lg, p.text-xl, .text-lg.p, .text-xl.p {
+    font-family: var(--font-subheading), 'Sora', sans-serif;
+  }
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  color: var(--rais-offwhite);
-  background: var(--rais-black);
 }

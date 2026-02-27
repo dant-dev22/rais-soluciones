@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Outfit } from 'next/font/google'
+import { Inter, Sora, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 
-const inter = Inter({ subsets: ['latin'] })
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const sora = Sora({ subsets: ['latin'], variable: '--font-subheading' })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-heading' })
 import Footer from '@/components/Footer'
 import AnimatedBubbles from '@/components/AnimatedBubbles'
 import CookieBanner from '@/components/CookieBanner'
@@ -67,7 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} ${outfit.variable}`}>
+      <body className={`${inter.variable} ${sora.variable} ${spaceGrotesk.variable} ${inter.className}`}>
         <Header />
         <main className="min-h-screen relative">
           {children}

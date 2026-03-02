@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const STORAGE_KEY = 'rais-cookies-consent'
 
@@ -10,7 +11,9 @@ export default function CookieBanner() {
   useEffect(() => {
     if (typeof window === 'undefined') return
     const stored = sessionStorage.getItem(STORAGE_KEY)
-    if (stored === null) setVisible(true)
+    if (stored !== null) return
+    const timer = setTimeout(() => setVisible(true), 3000)
+    return () => clearTimeout(timer)
   }, [])
 
   const accept = () => {
@@ -23,15 +26,19 @@ export default function CookieBanner() {
     setVisible(false)
   }
 
-  if (!visible) return null
-
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 sm:px-6 sm:py-5 bg-rais-charcoal border-t border-rais-soft-gold/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
-      role="dialog"
-      aria-labelledby="cookie-banner-title"
-      aria-describedby="cookie-banner-desc"
-    >
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+          className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 sm:px-6 sm:py-5 bg-rais-charcoal border-t border-rais-soft-gold/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+          role="dialog"
+          aria-labelledby="cookie-banner-title"
+          aria-describedby="cookie-banner-desc"
+        >
       <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex-1">
           <h2 id="cookie-banner-title" className="font-outfit font-semibold text-rais-offwhite text-sm sm:text-base mb-1">
@@ -45,19 +52,21 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={reject}
-            className="px-4 py-2 rounded-lg text-sm font-medium text-rais-offwhite/80 hover:text-rais-offwhite border border-rais-soft-gold/50 hover:border-rais-terracotta/50 transition-colors"
+            className="px-4 py-2 rounded-lg text-sm font-medium text-rais-offwhite/80 hover:text-rais-offwhite border border-rais-soft-gold/50 hover:border-rais-terracotta/50 hover:scale-[1.02] transition-all duration-200"
           >
             Rechazar
           </button>
           <button
             type="button"
             onClick={accept}
-            className="px-4 py-2 rounded-lg text-sm font-semibold bg-rais-terracotta text-rais-on-accent hover:bg-rais-terracotta/90 transition-colors"
+            className="px-4 py-2 rounded-lg text-sm font-semibold bg-rais-terracotta text-rais-on-accent hover:bg-rais-terracotta/90 hover:scale-[1.02] transition-all duration-200"
           >
             Aceptar
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
+      )}
+    </AnimatePresence>
   )
 }

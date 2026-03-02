@@ -20,7 +20,7 @@ const FORM_STYLES = {
     successBorder: 'border-rais-success/50',
     successText: 'text-rais-success',
     button: 'bg-rais-terracotta',
-    buttonHover: 'hover:bg-rais-terracotta/90',
+    buttonHover: 'hover:bg-rais-terracotta/90 hover:scale-[1.02]',
     buttonText: 'text-rais-on-accent',
   },
   spacing: {
@@ -43,7 +43,7 @@ const FORM_STYLES = {
   },
   effects: {
     focusRing: 'focus:ring-2 focus:ring-rais-terracotta',
-    transition: 'transition-colors',
+    transition: 'transition-all duration-200',
   },
 }
 
@@ -119,15 +119,22 @@ export default function Contact() {
 
           {submitted && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
               className={`${FORM_STYLES.colors.successBg} ${FORM_STYLES.colors.successBorder} ${FORM_STYLES.colors.successText} px-4 py-3 rounded mb-6`}
             >
               ¡Mensaje enviado con éxito! Te contactaremos pronto.
             </motion.div>
           )}
 
-          <form onSubmit={handleSubmit} className={FORM_STYLES.spacing.form}>
+          <motion.form
+            onSubmit={handleSubmit}
+            className={FORM_STYLES.spacing.form}
+            initial={{ opacity: 0, y: 36 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+          >
             <div>
               <label htmlFor="contact-nombre" className={`block ${FORM_STYLES.sizes.text.label} font-medium ${FORM_STYLES.colors.label} ${FORM_STYLES.spacing.field}`}>
                 Nombre
@@ -180,13 +187,16 @@ export default function Contact() {
               />
             </div>
 
-            <button
+            <motion.button
               type="submit"
               className={`w-full ${FORM_STYLES.colors.button} ${FORM_STYLES.colors.buttonText} ${FORM_STYLES.sizes.button} rounded-lg font-semibold ${FORM_STYLES.sizes.text.button} ${FORM_STYLES.colors.buttonHover} ${FORM_STYLES.effects.transition}`}
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+              transition={{ duration: 0.45, delay: 0.35, ease: 'easeOut' }}
             >
               Enviar
-            </button>
-          </form>
+            </motion.button>
+          </motion.form>
         </motion.div>
       </div>
     </section>

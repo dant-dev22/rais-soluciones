@@ -1,12 +1,20 @@
 'use client'
 
 import { ReactNode } from 'react'
+import { motion } from 'framer-motion'
 import { getWhatsAppUrl } from '@/utils/whatsapp'
+
+export interface ServiceExample {
+  url: string
+  title: string
+  description: string
+}
 
 interface ServiceLayoutProps {
   title: string
   image: ReactNode
   children: ReactNode
+  examples?: ServiceExample[]
 }
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -22,41 +30,122 @@ function WhatsAppIcon({ className }: { className?: string }) {
   )
 }
 
+const transition = { duration: 0.5, ease: 'easeOut' as const }
+
+const PLACEHOLDER_EXAMPLE: ServiceExample = {
+  url: '#',
+  title: 'Próximamente',
+  description: 'Más ejemplos de nuestros trabajos en breve.',
+}
+
 /**
  * Layout base para páginas de servicios.
  * Distribución: imagen grande a un lado, descripción al otro.
- * En desktop: imagen izquierda (45%), contenido derecha (55%).
- * En móvil: imagen arriba, contenido abajo.
+ * Incluye sección "Ejemplos" con carrusel de cards.
  */
-export default function ServiceLayout({ title, image, children }: ServiceLayoutProps) {
+export default function ServiceLayout({ title, image, children, examples = [] }: ServiceLayoutProps) {
+  const showPlaceholders = examples.length === 0
+  const carouselItems = showPlaceholders
+    ? [PLACEHOLDER_EXAMPLE, { ...PLACEHOLDER_EXAMPLE, title: 'Ejemplo próximamente' }]
+    : [...examples, ...(examples.length < 2 ? [PLACEHOLDER_EXAMPLE] : [])]
+
   return (
+    <>
     <section className="py-12 sm:py-16 md:py-24 bg-rais-black min-h-[60vh]">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-20 items-center max-w-6xl mx-auto">
-          <div className="order-2 lg:order-1">
+          <motion.div
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={transition}
+          >
             <div className="aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden bg-rais-charcoal border border-rais-soft-gold/40 shadow-xl">
               {image}
             </div>
-          </div>
+          </motion.div>
           <div className="order-1 lg:order-2 space-y-6">
-            <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite">
+            <motion.h1
+              className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite"
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ ...transition, delay: 0.1 }}
+            >
               {title}
-            </h1>
-            <div className="text-rais-offwhite/80 leading-relaxed space-y-4 text-base sm:text-lg">
+            </motion.h1>
+            <motion.div
+              className="text-rais-offwhite/80 leading-relaxed space-y-4 text-base sm:text-lg"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...transition, delay: 0.2 }}
+            >
               {children}
-            </div>
-            <a
+            </motion.div>
+            <motion.a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-rais-success text-rais-on-accent px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-rais-success/90 hover:shadow-lg hover:shadow-rais-success/20 hover:scale-[1.02] transition-all text-sm sm:text-base"
+              className="inline-flex items-center justify-center gap-2 bg-rais-success text-rais-on-accent px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-rais-success/90 hover:shadow-lg hover:shadow-rais-success/20 hover:scale-[1.02] transition-all duration-200 text-sm sm:text-base"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...transition, delay: 0.35 }}
             >
               <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
               Cotiza ahora tu proyecto
-            </a>
+            </motion.a>
           </div>
         </div>
       </div>
     </section>
+
+    <section id="ejemplos" className="py-12 sm:py-16 md:py-20 bg-rais-charcoal border-t border-rais-soft-gold/20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-rais-offwhite mb-8 text-center">
+          Algunos de nuestros trabajos
+        </h2>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-rais-soft-gold/40 scrollbar-track-transparent">
+            {carouselItems.map((item, index) => {
+              const isPlaceholder = item.url === '#'
+              const cardContent = (
+                <div
+                  className={`rounded-xl overflow-hidden border border-rais-soft-gold/40 bg-rais-black transition-all duration-200 h-full ${
+                    !isPlaceholder ? 'hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 cursor-pointer' : 'opacity-80'
+                  }`}
+                >
+                  <div className="aspect-video bg-gradient-to-br from-rais-charcoal to-rais-soft-gold/10 flex items-center justify-center">
+                    {isPlaceholder ? (
+                      <span className="text-rais-offwhite/40 text-sm">Ejemplo</span>
+                    ) : (
+                      <span className="text-rais-terracotta/60 text-xs font-medium">Ver proyecto</span>
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-rais-offwhite text-base mb-2">{item.title}</h3>
+                    <p className="text-rais-offwhite/70 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              )
+              return isPlaceholder ? (
+                <div key={index} className="flex-shrink-0 w-[280px] sm:w-[320px] snap-center">
+                  {cardContent}
+                </div>
+              ) : (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 w-[280px] sm:w-[320px] snap-center block"
+                >
+                  {cardContent}
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+    </>
   )
 }

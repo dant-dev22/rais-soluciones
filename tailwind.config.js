@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['var(--font-heading)', 'Space Grotesk', 'sans-serif'],
-        subheading: ['var(--font-subheading)', 'Sora', 'sans-serif'],
-        body: ['var(--font-inter)', 'Inter', 'sans-serif'],
-        outfit: ['var(--font-heading)', 'Space Grotesk', 'sans-serif'],
+        heading: ['var(--font-heading)', 'Orbitron', 'sans-serif'],
+        subheading: ['var(--font-subheading)', 'Exo 2', 'sans-serif'],
+        body: ['var(--font-body)', 'Rajdhani', 'sans-serif'],
+        outfit: ['var(--font-heading)', 'Orbitron', 'sans-serif'],
       },
       colors: {
         // Cyberpunk-tech design system

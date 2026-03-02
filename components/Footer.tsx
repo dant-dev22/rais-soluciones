@@ -14,7 +14,7 @@ export default function Footer() {
           <nav className="flex gap-4" aria-label="Redes sociales">
             <Link
               href="#"
-              className="text-rais-offwhite/60 hover:text-rais-terracotta transition-colors"
+              className="text-rais-offwhite/60 hover:text-rais-terracotta hover:scale-110 transition-all duration-200 inline-block"
               aria-label="Facebook"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ export default function Footer() {
             </Link>
             <Link
               href="#"
-              className="text-rais-offwhite/60 hover:text-rais-terracotta transition-colors"
+              className="text-rais-offwhite/60 hover:text-rais-terracotta hover:scale-110 transition-all duration-200 inline-block"
               aria-label="Twitter"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
             <Link
               href="#"
-              className="text-rais-offwhite/60 hover:text-rais-terracotta transition-colors"
+              className="text-rais-offwhite/60 hover:text-rais-terracotta hover:scale-110 transition-all duration-200 inline-block"
               aria-label="Instagram"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

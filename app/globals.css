@@ -39,16 +39,16 @@
   body {
     color: var(--rais-offwhite);
     background: var(--rais-black);
-    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-family: var(--font-body), 'Rajdhani', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading), 'Space Grotesk', sans-serif;
+    font-family: var(--font-heading), 'Orbitron', sans-serif;
   }
 
-  /* Subheadings - larger intro/description text */
-  p.text-lg, p.text-xl, .text-lg.p, .text-xl.p {
-    font-family: var(--font-subheading), 'Sora', sans-serif;
+  /* Subtítulos y títulos pequeños */
+  .font-subheading, p.text-lg, p.text-xl, .text-lg.p, .text-xl.p {
+    font-family: var(--font-subheading), 'Exo 2', sans-serif;
   }
 }
 

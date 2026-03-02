@@ -35,17 +35,24 @@ const services = [
   },
 ]
 
+const CARD_ANIMATIONS = [
+  { initial: { opacity: 0, x: -60 }, animate: { opacity: 1, x: 0 } },
+  { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
+  { initial: { opacity: 0, x: 60 }, animate: { opacity: 1, x: 0 } },
+]
+
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const anim = CARD_ANIMATIONS[index % CARD_ANIMATIONS.length]
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-rais-charcoal border border-rais-soft-gold/40 rounded-2xl p-6 hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 transition-all"
+      initial={anim.initial}
+      animate={isInView ? anim.animate : anim.initial}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+      className="bg-rais-charcoal border border-rais-soft-gold/40 rounded-2xl p-6 hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 hover:scale-[1.02] transition-all duration-200"
     >
       <div className={`mb-4 h-32 ${service.iconBg} rounded-xl flex items-center justify-center border border-rais-soft-gold/30`}>
         <span className="text-5xl">{service.icon}</span>
@@ -66,7 +73,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         href={service.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full py-2 rounded-lg bg-rais-terracotta text-rais-on-accent text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 transition-all text-center"
+        className="block w-full py-2 rounded-lg bg-rais-terracotta text-rais-on-accent text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-200 text-center"
       >
         Saber Más
       </Link>
@@ -79,12 +86,24 @@ export default function Services() {
     <section id="servicios" className="py-16 sm:py-20 md:py-24 bg-rais-charcoal">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite mb-4"
+          >
             Nuestros Servicios
-          </h2>
-          <p className="text-rais-offwhite/70 text-lg">
-          Soluciones digitales especializadas adaptadas a tus necesidades
-          </p>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            className="text-rais-offwhite/70 text-lg"
+          >
+            Soluciones digitales especializadas adaptadas a tus necesidades
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">

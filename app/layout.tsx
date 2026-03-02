@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Sora, Space_Grotesk } from 'next/font/google'
+import { Rajdhani, Exo_2, Orbitron } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const sora = Sora({ subsets: ['latin'], variable: '--font-subheading' })
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-heading' })
+const rajdhani = Rajdhani({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-body' })
+const exo2 = Exo_2({ subsets: ['latin'], variable: '--font-subheading' })
+const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-heading' })
 import Footer from '@/components/Footer'
 import AnimatedBubbles from '@/components/AnimatedBubbles'
 import CookieBanner from '@/components/CookieBanner'
@@ -68,7 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${sora.variable} ${spaceGrotesk.variable} ${inter.className}`}>
+      <body className={`${rajdhani.variable} ${exo2.variable} ${orbitron.variable} ${rajdhani.className}`}>
         <Header />
         <main className="min-h-screen relative">
           {children}

@@ -68,6 +68,53 @@ Luego, para ejecutar la versión de producción:
 npm start
 ```
 
+## Actualización en VPS (después de un merge)
+
+Para desplegar los cambios en el servidor una vez que se haya hecho merge a la rama principal:
+
+1. **Conectar al VPS por SSH**:
+
+```bash
+ssh root@srv1333724
+```
+
+2. **Ir al directorio del proyecto**:
+
+```bash
+cd ~/rais
+```
+
+3. **Descargar los últimos cambios**:
+
+```bash
+git pull
+```
+
+4. **Instalar dependencias** (por si cambió `package.json`):
+
+```bash
+npm install
+```
+
+5. **Construir la aplicación para producción**:
+
+```bash
+npm run build
+```
+
+6. **Reiniciar la aplicación con PM2** (el proceso se llama `rais`):
+
+```bash
+pm2 restart rais
+```
+
+7. **(Opcional)** Verificar que el proceso esté en ejecución:
+
+```bash
+pm2 status rais
+pm2 logs rais
+```
+
 ## Estructura del Proyecto
 
 ```

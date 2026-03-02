@@ -30,8 +30,17 @@ export default function ServiceEcommerceGestion() {
     </div>
   )
 
+  const examples = [
+    {
+      url: 'https://torneoaztlan.com',
+      title: 'Torneo Aztlan',
+      description:
+        'Gestión de registro y gestión de participantes para el Torneo Aztlan de Jiu Jitsu Brasileño.',
+    },
+  ]
+
   return (
-    <ServiceLayout title="E-commerce y Apps de Gestión" image={image}>
+    <ServiceLayout title="E-commerce y Apps de Gestión" image={image} examples={examples}>
       <p>
         El <strong>e-commerce</strong> engloba las transacciones comerciales realizadas por internet. Un sitio de 
         comercio electrónico típicamente incluye catálogo de productos, carrito de compras, procesamiento de pagos 

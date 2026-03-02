@@ -122,7 +122,7 @@ export default function Contacto() {
 
           <button
             type="submit"
-            className="w-full bg-rais-terracotta text-rais-on-accent px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-rais-terracotta-hover transition-colors"
+            className="w-full bg-rais-terracotta text-rais-on-accent px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-rais-terracotta-hover hover:scale-[1.02] transition-all duration-200"
           >
             Enviar
           </button>

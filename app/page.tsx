@@ -2,6 +2,7 @@
 
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
+import TrabajosSection from '@/components/TrabajosSection'
 import Quote from '@/components/Quote'
 import Contact from '@/components/Contact'
 import Testimonial from '@/components/Testimonial'
@@ -35,6 +36,7 @@ export default function Home() {
       <div className="pt-0">
         <Hero />
         <Services />
+        <TrabajosSection />
         <Quote />
         <Contact />
         <Testimonial />

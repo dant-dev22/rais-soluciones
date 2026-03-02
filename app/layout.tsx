@@ -7,7 +7,6 @@ const rajdhani = Rajdhani({ subsets: ['latin'], weight: ['400', '500', '600', '7
 const exo2 = Exo_2({ subsets: ['latin'], variable: '--font-subheading' })
 const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-heading' })
 import Footer from '@/components/Footer'
-import AnimatedBubbles from '@/components/AnimatedBubbles'
 import CookieBanner from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
@@ -74,7 +73,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <AnimatedBubbles />
         <CookieBanner />
       </body>
     </html>

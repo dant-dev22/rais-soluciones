@@ -1,14 +1,49 @@
 'use client'
 
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/scroll'
 import Logo from '@/components/Logo'
 
-export default function Hero() {
-  const handleCTAClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    smoothScrollTo('listo-para-comenzar', 100)
-  }
+function HeroComponent() {
+  const [shouldAnimateLogo, setShouldAnimateLogo] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    let timeoutId: number | null = null
+
+    const scheduleAnimation = () => {
+      timeoutId = window.setTimeout(() => {
+        setShouldAnimateLogo(true)
+      }, 1000)
+    }
+
+    const handleLoad = () => {
+      scheduleAnimation()
+    }
+
+    if (document.readyState === 'complete') {
+      scheduleAnimation()
+    } else {
+      window.addEventListener('load', handleLoad)
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad)
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [])
+
+  const handleCTAClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault()
+      smoothScrollTo('listo-para-comenzar', 100)
+    },
+    [],
+  )
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -18,7 +53,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <Logo
               className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 text-rais-terracotta"
-              animated
+              animated={shouldAnimateLogo}
             />
           </div>
 
@@ -63,3 +98,5 @@ export default function Hero() {
     </section>
   )
 }
+
+export default memo(HeroComponent)

@@ -5,7 +5,6 @@ import Services from '@/components/Services'
 import TrabajosSection from '@/components/TrabajosSection'
 import Quote from '@/components/Quote'
 import Contact from '@/components/Contact'
-import Testimonial from '@/components/Testimonial'
 
 export default function Home() {
   return (
@@ -39,7 +38,6 @@ export default function Home() {
         <TrabajosSection />
         <Quote />
         <Contact />
-        <Testimonial />
       </div>
     </>
   )

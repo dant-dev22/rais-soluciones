@@ -6,7 +6,7 @@ import QuoteDesarrolloWeb from './QuoteDesarrolloWeb'
 
 export default function Quote() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: false, margin: '-100px' })
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-rais-black">

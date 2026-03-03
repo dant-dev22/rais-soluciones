@@ -43,7 +43,7 @@ const CARD_ANIMATIONS = [
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const isInView = useInView(ref, { once: false, margin: '-50px' })
   const anim = CARD_ANIMATIONS[index % CARD_ANIMATIONS.length]
 
   return (
@@ -82,14 +82,16 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 }
 
 export default function Services() {
+  const headerRef = useRef(null)
+  const isHeaderInView = useInView(headerRef, { once: false, margin: '-40px' })
+
   return (
     <section id="servicios" className="py-16 sm:py-20 md:py-24 bg-rais-charcoal">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" ref={headerRef}>
           <motion.h2
             initial={{ opacity: 0, y: -40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite mb-4"
           >
@@ -97,8 +99,7 @@ export default function Services() {
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
             className="text-rais-offwhite/70 text-lg"
           >

@@ -5,36 +5,16 @@ import { motion } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/scroll'
 import Logo from '@/components/Logo'
 
+const LOGO_REPEAT_MS = 10000
+
 function HeroComponent() {
-  const [shouldAnimateLogo, setShouldAnimateLogo] = useState(false)
+  const [animationKey, setAnimationKey] = useState(0)
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
-
-    let timeoutId: number | null = null
-
-    const scheduleAnimation = () => {
-      timeoutId = window.setTimeout(() => {
-        setShouldAnimateLogo(true)
-      }, 1000)
-    }
-
-    const handleLoad = () => {
-      scheduleAnimation()
-    }
-
-    if (document.readyState === 'complete') {
-      scheduleAnimation()
-    } else {
-      window.addEventListener('load', handleLoad)
-    }
-
-    return () => {
-      window.removeEventListener('load', handleLoad)
-      if (timeoutId !== null) {
-        clearTimeout(timeoutId)
-      }
-    }
+    const id = setInterval(() => {
+      setAnimationKey((prev) => prev + 1)
+    }, LOGO_REPEAT_MS)
+    return () => clearInterval(id)
   }, [])
 
   const handleCTAClick = useCallback(
@@ -52,8 +32,9 @@ function HeroComponent() {
           {/* Logo: más grande y animado de arriba a abajo */}
           <div className="flex justify-center">
             <Logo
+              key={animationKey}
               className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 text-rais-terracotta"
-              animated={shouldAnimateLogo}
+              animated
             />
           </div>
 

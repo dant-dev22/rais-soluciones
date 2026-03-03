@@ -1,13 +1,15 @@
 'use client'
 
-import React, { memo, useCallback, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/scroll'
 import Logo from '@/components/Logo'
 
-const LOGO_REPEAT_MS = 10000
+const LOGO_REPEAT_MS = 3000
 
 function HeroComponent() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 })
   const [animationKey, setAnimationKey] = useState(0)
 
   useEffect(() => {
@@ -26,22 +28,30 @@ function HeroComponent() {
   )
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* Logo: más grande y animado de arriba a abajo */}
-          <div className="flex justify-center">
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+          >
             <Logo
               key={animationKey}
               className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 text-rais-terracotta"
               animated
             />
-          </div>
+          </motion.div>
 
           {/* Título: entra desde la derecha */}
           <motion.h1
             initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
             transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-rais-offwhite leading-tight"
           >
@@ -54,7 +64,7 @@ function HeroComponent() {
           {/* Descripción: entra desde la izquierda */}
           <motion.p
             initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
             className="text-lg sm:text-xl text-rais-offwhite/70 max-w-2xl mx-auto"
           >
@@ -64,7 +74,7 @@ function HeroComponent() {
           {/* Botón: entra desde abajo */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
           >
             <button

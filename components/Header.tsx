@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/scroll'
 import Logo from '@/components/Logo'
 
@@ -16,10 +15,7 @@ export default function Header() {
   }
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <header
       className="sticky top-0 z-50 bg-rais-black/98 backdrop-blur-sm border-b border-rais-soft-gold/40"
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -106,7 +102,7 @@ export default function Header() {
           </div>
         </div>
       )}
-    </motion.header>
+    </header>
   )
 }
 

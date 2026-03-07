@@ -1,23 +1,13 @@
 'use client'
 
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
+import React, { memo, useCallback, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { smoothScrollTo } from '@/utils/scroll'
 import Logo from '@/components/Logo'
 
-const LOGO_REPEAT_MS = 3000
-
 function HeroComponent() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 })
-  const [animationKey, setAnimationKey] = useState(0)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setAnimationKey((prev) => prev + 1)
-    }, LOGO_REPEAT_MS)
-    return () => clearInterval(id)
-  }, [])
 
   const handleCTAClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,9 +32,7 @@ function HeroComponent() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             <Logo
-              key={animationKey}
               className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 text-rais-terracotta"
-              animated
             />
           </motion.div>
 

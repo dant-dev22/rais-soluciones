@@ -1,8 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { memo, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 
 const services = [
@@ -35,23 +34,29 @@ const services = [
   },
 ]
 
-const CARD_ANIMATIONS = [
-  { initial: { opacity: 0, x: -60 }, animate: { opacity: 1, x: 0 } },
-  { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
-  { initial: { opacity: 0, x: 60 }, animate: { opacity: 1, x: 0 } },
-]
+/** Misma animación que Quote: entra desde abajo (y: 40) con fade */
+const QUOTE_STYLE_ANIM = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+}
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+const ServiceCard = memo(function ServiceCard({
+  service,
+  index,
+}: {
+  service: (typeof services)[0]
+  index: number
+}) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, margin: '-50px' })
-  const anim = CARD_ANIMATIONS[index % CARD_ANIMATIONS.length]
+  const isInView = useInView(ref, { once: false, margin: '-100px' })
 
   return (
     <motion.div
       ref={ref}
-      initial={anim.initial}
-      animate={isInView ? anim.animate : anim.initial}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+      initial={QUOTE_STYLE_ANIM.initial}
+      animate={isInView ? QUOTE_STYLE_ANIM.animate : QUOTE_STYLE_ANIM.initial}
+      transition={{ ...QUOTE_STYLE_ANIM.transition, delay: index * 0.1 }}
       className="bg-rais-charcoal border border-rais-soft-gold/40 rounded-2xl p-6 hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 hover:scale-[1.02] transition-all duration-200"
     >
       <div className={`mb-4 h-32 ${service.iconBg} rounded-xl flex items-center justify-center border border-rais-soft-gold/30`}>
@@ -79,28 +84,28 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       </Link>
     </motion.div>
   )
-}
+})
 
 export default function Services() {
   const headerRef = useRef(null)
-  const isHeaderInView = useInView(headerRef, { once: false, margin: '-40px' })
+  const isHeaderInView = useInView(headerRef, { once: false, margin: '-100px' })
 
   return (
     <section id="servicios" className="py-16 sm:py-20 md:py-24 bg-rais-charcoal">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12" ref={headerRef}>
           <motion.h2
-            initial={{ opacity: 0, y: -40 }}
-            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            initial={QUOTE_STYLE_ANIM.initial}
+            animate={isHeaderInView ? QUOTE_STYLE_ANIM.animate : QUOTE_STYLE_ANIM.initial}
+            transition={QUOTE_STYLE_ANIM.transition}
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite mb-4"
           >
             Nuestros Servicios
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+            initial={QUOTE_STYLE_ANIM.initial}
+            animate={isHeaderInView ? QUOTE_STYLE_ANIM.animate : QUOTE_STYLE_ANIM.initial}
+            transition={{ ...QUOTE_STYLE_ANIM.transition, delay: 0.1 }}
             className="text-rais-offwhite/70 text-lg"
           >
             Soluciones digitales especializadas adaptadas a tus necesidades

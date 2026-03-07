@@ -118,14 +118,11 @@ export default function Contact() {
           </p>
 
           {submitted && (
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
+            <div
               className={`${FORM_STYLES.colors.successBg} ${FORM_STYLES.colors.successBorder} ${FORM_STYLES.colors.successText} px-4 py-3 rounded mb-6`}
             >
               ¡Mensaje enviado con éxito! Te contactaremos pronto.
-            </motion.div>
+            </div>
           )}
 
           <motion.form

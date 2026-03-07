@@ -1,7 +1,7 @@
 'use client'
 
-import { ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import { ReactNode, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { getWhatsAppUrl } from '@/utils/whatsapp'
 
 export interface ServiceExample {
@@ -44,6 +44,9 @@ const PLACEHOLDER_EXAMPLE: ServiceExample = {
  * Incluye sección "Ejemplos" con carrusel de cards.
  */
 export default function ServiceLayout({ title, image, children, examples = [] }: ServiceLayoutProps) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
+
   const showPlaceholders = examples.length === 0
   const carouselItems = showPlaceholders
     ? [PLACEHOLDER_EXAMPLE, { ...PLACEHOLDER_EXAMPLE, title: 'Ejemplo próximamente' }]
@@ -51,13 +54,13 @@ export default function ServiceLayout({ title, image, children, examples = [] }:
 
   return (
     <>
-    <section className="py-12 sm:py-16 md:py-24 bg-rais-black min-h-[60vh]">
+    <section ref={sectionRef} className="py-12 sm:py-16 md:py-24 bg-rais-black min-h-[60vh]">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-20 items-center max-w-6xl mx-auto">
           <motion.div
             className="order-2 lg:order-1"
             initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
             transition={transition}
           >
             <div className="aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden bg-rais-charcoal border border-rais-soft-gold/40 shadow-xl">
@@ -68,7 +71,7 @@ export default function ServiceLayout({ title, image, children, examples = [] }:
             <motion.h1
               className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-rais-offwhite"
               initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
               transition={{ ...transition, delay: 0.1 }}
             >
               {title}
@@ -76,7 +79,7 @@ export default function ServiceLayout({ title, image, children, examples = [] }:
             <motion.div
               className="text-rais-offwhite/80 leading-relaxed space-y-4 text-base sm:text-lg"
               initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ ...transition, delay: 0.2 }}
             >
               {children}
@@ -87,7 +90,7 @@ export default function ServiceLayout({ title, image, children, examples = [] }:
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-rais-success text-rais-on-accent px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-rais-success/90 hover:shadow-lg hover:shadow-rais-success/20 hover:scale-[1.02] transition-all duration-200 text-sm sm:text-base"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ ...transition, delay: 0.35 }}
             >
               <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />

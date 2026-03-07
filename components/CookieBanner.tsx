@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 
 const STORAGE_KEY = 'rais-cookies-consent'
 
@@ -26,19 +25,15 @@ export default function CookieBanner() {
     setVisible(false)
   }
 
+  if (!visible) return null
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 100 }}
-          transition={{ duration: 0.35, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 sm:px-6 sm:py-5 bg-rais-charcoal border-t border-rais-soft-gold/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
-          role="dialog"
-          aria-labelledby="cookie-banner-title"
-          aria-describedby="cookie-banner-desc"
-        >
+    <div
+      className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 sm:px-6 sm:py-5 bg-rais-charcoal border-t border-rais-soft-gold/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+      role="dialog"
+      aria-labelledby="cookie-banner-title"
+      aria-describedby="cookie-banner-desc"
+    >
       <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex-1">
           <h2 id="cookie-banner-title" className="font-outfit font-semibold text-rais-offwhite text-sm sm:text-base mb-1">
@@ -65,8 +60,6 @@ export default function CookieBanner() {
           </button>
         </div>
       </div>
-    </motion.div>
-      )}
-    </AnimatePresence>
+    </div>
   )
 }

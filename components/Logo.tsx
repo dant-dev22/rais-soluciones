@@ -1,12 +1,9 @@
 'use client'
 
 import { memo, useMemo } from 'react'
-import { motion } from 'framer-motion'
 
 interface LogoProps {
   className?: string
-  /** En el Hero: revelado de arriba a abajo */
-  animated?: boolean
 }
 
 const PATHS = [
@@ -22,13 +19,7 @@ const PATHS = [
   'M3955 1655 c-27 -8 -53 -14 -58 -15 -21 -1 -100 -88 -122 -135 -23 -50 -25 -64 -25 -212 0 -110 4 -163 12 -171 16 -16 73 -15 86 1 6 6 12 81 14 167 3 141 5 158 25 186 46 65 61 69 238 69 153 0 162 -1 195 -24 85 -59 110 -110 110 -226 0 -49 -4 -85 -10 -85 -5 0 -19 -19 -31 -41 -20 -41 -20 -43 -3 -81 29 -65 91 -85 151 -48 22 13 34 29 38 54 8 42 -1 90 -21 107 -10 8 -14 34 -14 93 0 181 -74 298 -222 351 -63 23 -297 30 -363 10z',
 ]
 
-const LOGO_ANIMATION_DURATION = 3.5
-const PATH_COUNT = PATHS.length
-const SEGMENT_DURATION = LOGO_ANIMATION_DURATION / PATH_COUNT
-const DELAY_BETWEEN = SEGMENT_DURATION
-const PATH_DURATION = SEGMENT_DURATION
-
-function LogoComponent({ className = '', animated = false }: LogoProps) {
+function LogoComponent({ className = '' }: LogoProps) {
   const staticSvg = useMemo(
     () => (
       <svg
@@ -48,37 +39,6 @@ function LogoComponent({ className = '', animated = false }: LogoProps) {
     ),
     [className],
   )
-
-  if (animated) {
-    return (
-      <div className="flex justify-center overflow-hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 800 600"
-          preserveAspectRatio="xMidYMid meet"
-          className={className}
-          fill="currentColor"
-          aria-hidden
-        >
-          <g transform="translate(0,600) scale(0.1,-0.1)">
-            {PATHS.map((d, i) => (
-              <motion.path
-                key={i}
-                d={d}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: PATH_DURATION,
-                  delay: i * DELAY_BETWEEN,
-                  ease: [0.22, 0.61, 0.36, 1],
-                }}
-              />
-            ))}
-          </g>
-        </svg>
-      </div>
-    )
-  }
 
   return <div className="flex items-center justify-center">{staticSvg}</div>
 }

@@ -14,28 +14,22 @@ module.exports = {
         outfit: ['var(--font-heading)', 'Orbitron', 'sans-serif'],
       },
       colors: {
-        // Cyberpunk-tech design system
-        'rais-black': '#0B0F1A',
-        'rais-charcoal': '#111827',
+        // Paleta principal: negro, gris oscuro, dorado, plata
+        'rais-black': '#000000',
+        'rais-charcoal': '#1a1a1a',
+        'rais-hover': '#2a2a2a',
         'rais-offwhite': '#E5E7EB',
         'rais-text-secondary': '#9CA3AF',
-        'rais-on-accent': '#0B0F1A',
+        'rais-on-accent': '#FFFFFF',
 
-        'rais-terracotta': {
-          DEFAULT: '#00F5FF',
-          hover: '#33F7FF',
-          active: '#00D4DE',
-        },
+        'rais-soft-gold': '#00F5FF',
+        'rais-terracotta': '#C65D3B',
+        'rais-silver': '#A8A8A8',
 
-        'rais-oxide-red': '#FF00C8',
-        'rais-soft-gold': '#FF00C8',
-
-        'rais-success': '#22C55E',
+        'rais-success': '#25D366',
         'rais-warning': '#EAB308',
         'rais-error': '#EF4444',
-        'rais-info': '#3B82F6',
-
-        'pew-orange': '#00F5FF',
+        'rais-info': '#6B7280',
       },
     },
   },

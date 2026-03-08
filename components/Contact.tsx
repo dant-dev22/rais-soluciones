@@ -8,10 +8,10 @@ import { useRef } from 'react'
 // Estilos modulares del formulario - RAIS Labs Design System
 const FORM_STYLES = {
   colors: {
-    inputBorder: 'border-rais-soft-gold/40',
-    inputBorderFocus: 'border-rais-terracotta',
+    inputBorder: 'border-rais-soft-gold',
+    inputBorderFocus: 'border-rais-soft-gold',
     inputBorderError: 'border-rais-error',
-    inputBg: 'bg-rais-charcoal',
+    inputBg: 'bg-transparent',
     inputText: 'text-rais-offwhite',
     inputPlaceholder: 'placeholder:text-rais-offwhite/40',
     label: 'text-rais-offwhite/90',
@@ -19,9 +19,9 @@ const FORM_STYLES = {
     successBg: 'bg-rais-success/20',
     successBorder: 'border-rais-success/50',
     successText: 'text-rais-success',
-    button: 'bg-rais-terracotta',
-    buttonHover: 'hover:bg-rais-terracotta/90 hover:scale-[1.02]',
-    buttonText: 'text-rais-on-accent',
+    button: 'bg-transparent border-2 border-white',
+    buttonHover: 'hover:bg-rais-hover hover:scale-[1.02]',
+    buttonText: 'text-white',
   },
   spacing: {
     section: 'py-16 sm:py-20 md:py-24',
@@ -42,7 +42,7 @@ const FORM_STYLES = {
     },
   },
   effects: {
-    focusRing: 'focus:ring-2 focus:ring-rais-terracotta',
+    focusRing: 'focus:ring-2 focus:ring-rais-soft-gold',
     transition: 'transition-all duration-200',
   },
 }

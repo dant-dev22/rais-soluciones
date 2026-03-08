@@ -12,7 +12,7 @@ const services = [
     description:
       'Página de una sola vista, ideal para presentar tu proyecto o servicio de forma clara y directa.',
     features: ['Diseño responsive', 'Optimización básica', 'Carga rápida'],
-    iconBg: 'bg-rais-info/20',
+    iconBg: 'bg-rais-charcoal/80',
   },
   {
     icon: '🌐',
@@ -21,7 +21,7 @@ const services = [
     description:
       'Landing page con varias secciones o pestañas, diseñada para convertir visitas en acciones concretas.',
     features: ['Estructura orientada a conversión', 'Adaptada a móviles', 'SEO base'],
-    iconBg: 'bg-rais-oxide-red/20',
+    iconBg: 'bg-rais-charcoal/80',
   },
   {
     icon: '🛒',
@@ -30,7 +30,7 @@ const services = [
     description:
       'Tiendas online y sistemas de administración de datos para inventarios, registros y paneles internos.',
     features: ['Tienda en línea', 'Gestión de datos e inventario', 'Paneles y reportes'],
-    iconBg: 'bg-rais-terracotta/20',
+    iconBg: 'bg-rais-charcoal/80',
   },
 ]
 
@@ -57,9 +57,9 @@ const ServiceCard = memo(function ServiceCard({
       initial={QUOTE_STYLE_ANIM.initial}
       animate={isInView ? QUOTE_STYLE_ANIM.animate : QUOTE_STYLE_ANIM.initial}
       transition={{ ...QUOTE_STYLE_ANIM.transition, delay: index * 0.1 }}
-      className="bg-rais-charcoal border border-rais-soft-gold/40 rounded-2xl p-6 hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 hover:scale-[1.02] transition-all duration-200"
+      className="bg-transparent border border-rais-soft-gold rounded-2xl p-6 hover:border-rais-soft-gold hover:bg-rais-hover hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
     >
-      <div className={`mb-4 h-32 ${service.iconBg} rounded-xl flex items-center justify-center border border-rais-soft-gold/30`}>
+      <div className={`mb-4 h-32 ${service.iconBg} rounded-xl flex items-center justify-center border border-rais-soft-gold/50`}>
         <span className="text-5xl">{service.icon}</span>
       </div>
       <h3 className="text-xl font-semibold text-rais-offwhite mb-3">{service.title}</h3>
@@ -67,7 +67,7 @@ const ServiceCard = memo(function ServiceCard({
       <div className="space-y-2 mb-6">
         {service.features.map((feature, idx) => (
           <div key={idx} className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-rais-terracotta" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-4 h-4 text-rais-soft-gold" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
             <span className="text-sm text-rais-offwhite/80">{feature}</span>
@@ -78,7 +78,7 @@ const ServiceCard = memo(function ServiceCard({
         href={service.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full py-2 rounded-lg bg-rais-terracotta text-rais-on-accent text-sm font-semibold hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-200 text-center"
+        className="block w-full py-2 rounded-lg bg-transparent border border-white text-white text-sm font-semibold hover:bg-rais-hover hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-200 text-center"
       >
         Saber Más
       </Link>

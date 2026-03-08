@@ -1,46 +1,30 @@
 // RAIS Labs Design System - Color Tokens
-// Earthy & luminous palette — root, origin, growth
-// Single source of truth for all colors
+// Paleta: negro, gris oscuro, dorado, plata. Botones y cards transparentes.
 
 export const RAIS_COLORS = {
-  // Base - Light backgrounds & dark text
-  BLACK: '#EEF2EC', // Sage Light (primary bg)
-  CHARCOAL: '#F3EFE7', // Warm Beige (secondary bg)
-  OFFWHITE: '#1F2A22', // Deep Soil (primary text)
-
-  // Text on accent (CTAs, logos on colored bg)
-  ON_ACCENT: '#FDFCFA',
-
-  // Primary accent (brand) - Clay Orange
-  TERRACOTTA: '#B85E3C',
-
-  // Secondary accents
-  OXIDE_RED: '#3E5F4B', // Forest Green (structural emphasis)
-  SOFT_GOLD: '#D8C9A8', // Soft Sand (details, separators, badges)
-
-  // UI states - Natural range
-  SUCCESS: '#4F7A5A', // Moss
-  WARNING: '#C8A24D', // Ochre
-  ERROR: '#9E3A2F', // Earth Red
-  INFO: '#5A7D7C', // River Slate
+  BLACK: '#000000',
+  CHARCOAL: '#1a1a1a',
+  HOVER: '#2a2a2a',
+  OFFWHITE: '#E5E7EB',
+  ON_ACCENT: '#FFFFFF',
+  SOFT_GOLD: '#00F5FF', // cyan principal (accento)
+  TERRACOTTA: '#C65D3B',
+  SILVER: '#A8A8A8',
+  SUCCESS: '#25D366',
+  WARNING: '#EAB308',
+  ERROR: '#EF4444',
+  INFO: '#6B7280',
 } as const
 
-// Clay Orange interactive states
-export const CLAY_ORANGE_STATES = {
-  DEFAULT: '#B85E3C',
-  HOVER: '#C46A45',
-  ACTIVE: '#A35435',
-} as const
-
-// Tailwind color format (for use in className)
 export const RAIS_COLORS_TW = {
   black: 'rais-black',
   charcoal: 'rais-charcoal',
+  hover: 'rais-hover',
   offwhite: 'rais-offwhite',
   onAccent: 'rais-on-accent',
-  terracotta: 'rais-terracotta',
-  oxideRed: 'rais-oxide-red',
   softGold: 'rais-soft-gold',
+  terracotta: 'rais-terracotta',
+  silver: 'rais-silver',
   success: 'rais-success',
   warning: 'rais-warning',
   error: 'rais-error',

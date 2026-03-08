@@ -16,8 +16,8 @@ const PACKAGES = [
     description:
       'Una página sencilla de una sola vista, ideal para presencia digital mínima y directa. Incluye diseño responsive y optimización básica. Puedes agregar formulario de contacto con costo adicional.',
     delivery: '5 a 7 días hábiles',
-    iconBg: 'bg-rais-info/20',
-    iconColor: '#5A7D7C',
+    iconBg: 'bg-rais-charcoal/80',
+    iconColor: '#A8A8A8',
     Icon: () => (
       <svg viewBox="0 0 64 64" fill="none" className="w-full h-full" aria-hidden>
         <path
@@ -39,8 +39,8 @@ const PACKAGES = [
     description:
       'Página con varias secciones o pestañas, clara y enfocada en conversión. Ideal para lanzar un servicio, producto o campaña. Incluye diseño visual personalizado, estructura optimizada y adaptación móvil. Formulario de contacto opcional con costo adicional.',
     delivery: '7 a 10 días hábiles',
-    iconBg: 'bg-rais-oxide-red/20',
-    iconColor: '#3E5F4B',
+    iconBg: 'bg-rais-charcoal/80',
+    iconColor: '#A8A8A8',
     Icon: () => (
       <svg viewBox="0 0 64 64" fill="none" className="w-full h-full" aria-hidden>
         <path
@@ -62,8 +62,8 @@ const PACKAGES = [
     description:
       'Tiendas en línea completas con pagos, inventario y analytics. También desarrollamos aplicaciones de administración de datos: formularios de registro para torneos, gestión de inventario, control de citas, sistemas internos para negocios y más. Solución escalable y a medida.',
     delivery: '3 a 5 semanas',
-    iconBg: 'bg-rais-terracotta/20',
-    iconColor: '#B85E3C',
+    iconBg: 'bg-rais-charcoal/80',
+    iconColor: '#A8A8A8',
     Icon: () => (
       <svg viewBox="0 0 64 64" fill="none" className="w-full h-full" aria-hidden>
         <circle cx="24" cy="44" r="4" stroke="currentColor" strokeWidth="2.5" />
@@ -101,7 +101,7 @@ function PackageCard({
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
-      className="flex flex-col bg-rais-charcoal border border-rais-soft-gold/40 rounded-xl p-6 sm:p-8 hover:border-rais-terracotta/30 hover:scale-[1.02] transition-all duration-200 h-full"
+      className="flex flex-col bg-transparent border border-rais-soft-gold rounded-xl p-6 sm:p-8 hover:border-rais-soft-gold hover:bg-rais-hover hover:scale-[1.02] transition-all duration-200 h-full"
       aria-labelledby={`pkg-${pkg.id}-title`}
     >
       <div
@@ -125,7 +125,7 @@ function PackageCard({
       </p>
 
       <div className="mb-4 text-center">
-        <div className="flex items-baseline justify-center gap-2 font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-rais-terracotta tracking-tight">
+        <div className="flex items-baseline justify-center gap-2 font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-rais-soft-gold tracking-tight">
           <span>${pkg.priceMxn.toLocaleString('es-MX')} MXN</span>
         </div>
       </div>

@@ -32,7 +32,7 @@ function HeroComponent() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             <Logo
-              className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 text-rais-terracotta"
+              className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 text-rais-soft-gold"
             />
           </motion.div>
 
@@ -44,7 +44,7 @@ function HeroComponent() {
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-rais-offwhite leading-tight"
           >
             Crecemos tu idea{' '}
-            <span className="text-rais-terracotta">
+            <span className="text-rais-soft-gold">
               desde la raíz
             </span>
           </motion.h1>
@@ -67,7 +67,7 @@ function HeroComponent() {
           >
             <button
               onClick={handleCTAClick}
-              className="inline-block bg-rais-terracotta text-rais-on-accent px-8 py-4 rounded-lg font-semibold text-lg hover:bg-rais-terracotta/90 hover:shadow-lg hover:shadow-rais-terracotta/20 hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-200"
+              className="inline-block bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-rais-hover hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-200"
             >
               Inicia Tu Proyecto <span className="ml-2">→</span>
             </button>

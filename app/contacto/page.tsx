@@ -80,7 +80,7 @@ export default function Contacto() {
               name="nombre"
               value={formData.nombre}
               onChange={handleChange}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-rais-charcoal bg-rais-charcoal text-rais-offwhite rounded-lg focus:outline-none focus:ring-2 focus:ring-rais-terracotta focus:border-transparent"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-rais-soft-gold bg-transparent text-rais-offwhite rounded-lg focus:outline-none focus:ring-2 focus:ring-rais-soft-gold focus:border-transparent"
               required
             />
           </div>
@@ -95,8 +95,8 @@ export default function Contacto() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-rais-terracotta focus:border-transparent bg-rais-charcoal text-rais-offwhite ${
-                errors.email ? 'border-rais-error' : 'border-rais-charcoal'
+              className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-rais-soft-gold focus:border-transparent bg-transparent text-rais-offwhite ${
+                errors.email ? 'border-rais-error' : 'border-rais-soft-gold'
               }`}
               required
             />
@@ -115,14 +115,14 @@ export default function Contacto() {
               value={formData.mensaje}
               onChange={handleChange}
               rows={5}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-rais-charcoal bg-rais-charcoal text-rais-offwhite rounded-lg focus:outline-none focus:ring-2 focus:ring-rais-terracotta focus:border-transparent resize-none"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-rais-soft-gold bg-transparent text-rais-offwhite rounded-lg focus:outline-none focus:ring-2 focus:ring-rais-soft-gold focus:border-transparent resize-none"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-rais-terracotta text-rais-on-accent px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-rais-terracotta-hover hover:scale-[1.02] transition-all duration-200"
+            className="w-full bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-rais-hover hover:scale-[1.02] transition-all duration-200"
           >
             Enviar
           </button>

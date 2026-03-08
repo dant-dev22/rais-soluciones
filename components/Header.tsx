@@ -16,11 +16,11 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 bg-rais-black/98 backdrop-blur-sm border-b border-rais-soft-gold/40"
+      className="sticky top-0 z-50 bg-rais-black/98 backdrop-blur-sm border-b border-rais-soft-gold"
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3 hover:scale-[1.02] transition-transform duration-200" aria-label="RAIS Labs - Ir al inicio">
-          <Logo className="w-10 h-10 text-rais-terracotta shrink-0" />
+          <Logo className="w-10 h-10 text-rais-soft-gold shrink-0" animated={false} />
           <span className="text-xl sm:text-2xl font-bold text-rais-offwhite">RAIS Labs</span>
         </Link>
         
@@ -29,21 +29,21 @@ export default function Header() {
           <a
             href="#servicios"
             onClick={(e) => handleNavClick(e, 'servicios')}
-            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
           >
             Servicios
           </a>
           <a
             href="#portfolio"
             onClick={(e) => handleNavClick(e, 'portfolio')}
-            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
           >
             Portfolio
           </a>
           <a
             href="#contacto"
             onClick={(e) => handleNavClick(e, 'contacto')}
-            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
           >
             Contacto
           </a>
@@ -52,7 +52,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-110 transition-all duration-200"
+          className="md:hidden p-2 text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-110 transition-all duration-200"
           aria-label="Abrir o cerrar menú"
           aria-expanded={isMenuOpen}
         >
@@ -76,26 +76,26 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-rais-charcoal border-t border-rais-soft-gold/40">
+        <div className="md:hidden bg-rais-charcoal border-t border-rais-soft-gold">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <a
               href="#servicios"
               onClick={(e) => handleNavClick(e, 'servicios')}
-              className="text-base text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+              className="text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
             >
               Servicios
             </a>
             <a
               href="#portfolio"
               onClick={(e) => handleNavClick(e, 'portfolio')}
-              className="text-base text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+              className="text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
             >
               Portfolio
             </a>
             <a
               href="#contacto"
               onClick={(e) => handleNavClick(e, 'contacto')}
-              className="text-base text-rais-offwhite/80 hover:text-rais-terracotta hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
+              className="text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
             >
               Contacto
             </a>

@@ -2,19 +2,19 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-rais-black text-rais-offwhite py-8 sm:py-12 border-t border-rais-soft-gold/40" role="contentinfo">
+    <footer className="bg-rais-black text-rais-offwhite py-8 sm:py-12 border-t border-rais-soft-gold" role="contentinfo">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-rais-terracotta rounded flex items-center justify-center">
-              <span className="text-rais-on-accent font-bold text-sm">R</span>
+            <div className="w-8 h-8 bg-transparent border border-rais-soft-gold rounded flex items-center justify-center">
+              <span className="text-rais-soft-gold font-bold text-sm">R</span>
             </div>
             <span className="font-bold text-lg text-rais-offwhite">RAIS Labs</span>
           </div>
           <nav className="flex gap-4" aria-label="Redes sociales">
             <Link
               href="#"
-              className="text-rais-offwhite/60 hover:text-rais-terracotta hover:scale-110 transition-all duration-200 inline-block"
+              className="text-rais-offwhite/60 hover:text-rais-soft-gold hover:scale-110 transition-all duration-200 inline-block"
               aria-label="Facebook"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ export default function Footer() {
             </Link>
             <Link
               href="#"
-              className="text-rais-offwhite/60 hover:text-rais-terracotta hover:scale-110 transition-all duration-200 inline-block"
+              className="text-rais-offwhite/60 hover:text-rais-soft-gold hover:scale-110 transition-all duration-200 inline-block"
               aria-label="Twitter"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
             <Link
               href="#"
-              className="text-rais-offwhite/60 hover:text-rais-terracotta hover:scale-110 transition-all duration-200 inline-block"
+              className="text-rais-offwhite/60 hover:text-rais-soft-gold hover:scale-110 transition-all duration-200 inline-block"
               aria-label="Instagram"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -42,13 +42,13 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="border-t border-rais-soft-gold/40 pt-8">
+        <div className="border-t border-rais-soft-gold pt-8">
           <div className="space-y-3 text-center">
             <p className="text-rais-offwhite/60 text-sm">
               © 2026 RAIS Labs. Todos los derechos reservados.
             </p>
             <p className="text-rais-offwhite/50 text-sm">
-              Creado con <span className="text-rais-terracotta">♥</span> en México
+              Creado con <span className="text-rais-soft-gold">♥</span> en México
             </p>
           </div>
         </div>

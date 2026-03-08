@@ -4,11 +4,11 @@ import ServiceLayout from '@/components/ServiceLayout'
 
 export default function ServiceLandingPage() {
   const image = (
-    <div className="w-full h-full bg-gradient-to-br from-rais-oxide-red/20 to-rais-soft-gold/20 flex items-center justify-center">
+    <div className="w-full h-full bg-gradient-to-br from-rais-charcoal to-rais-soft-gold/20 flex items-center justify-center">
       <svg
         viewBox="0 0 64 64"
         fill="none"
-        className="w-1/3 h-1/3 text-rais-oxide-red"
+        className="w-1/3 h-1/3 text-rais-soft-gold"
         aria-hidden
       >
         <path

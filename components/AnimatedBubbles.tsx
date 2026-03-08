@@ -14,14 +14,13 @@ interface BubbleProps {
   index: number
 }
 
-// Estilos de las burbujas - RAIS Labs Design System
+// Estilos de las burbujas - RAIS Labs Design System (dorado sobre negro)
 const BUBBLE_STYLES = {
-  // Colores y opacidades - Clay Orange (#B85E3C), terrosa y luminosa
   color: {
-    primary: 'rgba(184, 94, 60, 0.1)',
-    secondary: 'rgba(184, 94, 60, 0.18)',
-    shadow: 'rgba(184, 94, 60, 0.04)',
-    shadowInset: 'rgba(184, 94, 60, 0.03)',
+    primary: 'rgba(212, 175, 55, 0.08)',
+    secondary: 'rgba(212, 175, 55, 0.14)',
+    shadow: 'rgba(212, 175, 55, 0.03)',
+    shadowInset: 'rgba(212, 175, 55, 0.02)',
   },
   // Opacidades para animación
   opacity: {

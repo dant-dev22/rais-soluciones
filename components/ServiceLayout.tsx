@@ -63,7 +63,7 @@ export default function ServiceLayout({ title, image, children, examples = [] }:
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
             transition={transition}
           >
-            <div className="aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden bg-rais-charcoal border border-rais-soft-gold/40 shadow-xl">
+            <div className="aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden bg-transparent border border-rais-soft-gold shadow-xl">
               {image}
             </div>
           </motion.div>
@@ -101,26 +101,26 @@ export default function ServiceLayout({ title, image, children, examples = [] }:
       </div>
     </section>
 
-    <section id="ejemplos" className="py-12 sm:py-16 md:py-20 bg-rais-charcoal border-t border-rais-soft-gold/20">
+    <section id="ejemplos" className="py-12 sm:py-16 md:py-20 bg-rais-charcoal border-t border-rais-soft-gold">
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-rais-offwhite mb-8 text-center">
           Algunos de nuestros trabajos
         </h2>
         <div className="max-w-5xl mx-auto">
-          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-rais-soft-gold/40 scrollbar-track-transparent">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-rais-soft-gold scrollbar-track-transparent">
             {carouselItems.map((item, index) => {
               const isPlaceholder = item.url === '#'
               const cardContent = (
                 <div
-                  className={`rounded-xl overflow-hidden border border-rais-soft-gold/40 bg-rais-black transition-all duration-200 h-full ${
-                    !isPlaceholder ? 'hover:border-rais-terracotta/50 hover:shadow-lg hover:shadow-rais-terracotta/10 cursor-pointer' : 'opacity-80'
+                  className={`rounded-xl overflow-hidden border border-rais-soft-gold bg-transparent transition-all duration-200 h-full ${
+                    !isPlaceholder ? 'hover:border-rais-soft-gold hover:bg-rais-hover hover:shadow-lg cursor-pointer' : 'opacity-80'
                   }`}
                 >
                   <div className="aspect-video bg-gradient-to-br from-rais-charcoal to-rais-soft-gold/10 flex items-center justify-center">
                     {isPlaceholder ? (
                       <span className="text-rais-offwhite/40 text-sm">Ejemplo</span>
                     ) : (
-                      <span className="text-rais-terracotta/60 text-xs font-medium">Ver proyecto</span>
+                      <span className="text-rais-soft-gold/80 text-xs font-medium">Ver proyecto</span>
                     )}
                   </div>
                   <div className="p-4">

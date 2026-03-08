@@ -1,9 +1,12 @@
 'use client'
 
-import { memo, useMemo } from 'react'
+import { memo, useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 interface LogoProps {
   className?: string
+  /** Si es false, el logo se muestra sin animación (útil en header) */
+  animated?: boolean
 }
 
 const PATHS = [
@@ -19,9 +22,38 @@ const PATHS = [
   'M3955 1655 c-27 -8 -53 -14 -58 -15 -21 -1 -100 -88 -122 -135 -23 -50 -25 -64 -25 -212 0 -110 4 -163 12 -171 16 -16 73 -15 86 1 6 6 12 81 14 167 3 141 5 158 25 186 46 65 61 69 238 69 153 0 162 -1 195 -24 85 -59 110 -110 110 -226 0 -49 -4 -85 -10 -85 -5 0 -19 -19 -31 -41 -20 -41 -20 -43 -3 -81 29 -65 91 -85 151 -48 22 13 34 29 38 54 8 42 -1 90 -21 107 -10 8 -14 34 -14 93 0 181 -74 298 -222 351 -63 23 -297 30 -363 10z',
 ]
 
-function LogoComponent({ className = '' }: LogoProps) {
-  const staticSvg = useMemo(
-    () => (
+/* Offset en unidades del path (viewBox escalado 0.1) para que se vea “desde abajo” */
+const TOTAL_ANIMATION_DURATION = 2
+const PATH_ANIMATION_DURATION = 1.0
+const PATH_COUNT = PATHS.length
+const STAGGER_STEP = (TOTAL_ANIMATION_DURATION - PATH_ANIMATION_DURATION) / Math.max(1, PATH_COUNT - 1)
+
+const PATH_VARIANTS = {
+  hidden: { opacity: 0, y: 180 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: PATH_ANIMATION_DURATION,
+      delay: i * STAGGER_STEP,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+}
+
+function LogoComponent({ className = '', animated = true }: LogoProps) {
+  const [cycle, setCycle] = useState(0)
+
+  useEffect(() => {
+    if (!animated) return
+    const id = setInterval(() => {
+      setCycle((c) => c + 1)
+    }, TOTAL_ANIMATION_DURATION * 1000)
+    return () => clearInterval(id)
+  }, [animated])
+
+  return (
+    <div className="flex items-center justify-center overflow-visible">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 800 600"
@@ -31,16 +63,24 @@ function LogoComponent({ className = '' }: LogoProps) {
         aria-hidden
       >
         <g transform="translate(0,600) scale(0.1,-0.1)">
-          {PATHS.map((d, i) => (
-            <path key={i} d={d} />
-          ))}
+          {PATHS.map((d, i) =>
+            animated ? (
+              <motion.path
+                key={`${i}-${cycle}`}
+                d={d}
+                variants={PATH_VARIANTS}
+                initial="hidden"
+                animate="visible"
+                custom={i}
+              />
+            ) : (
+              <path key={i} d={d} />
+            ),
+          )}
         </g>
       </svg>
-    ),
-    [className],
+    </div>
   )
-
-  return <div className="flex items-center justify-center">{staticSvg}</div>
 }
 
 export default memo(LogoComponent)

@@ -29,7 +29,7 @@ export default function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 sm:px-6 sm:py-5 bg-[#2d1b4e] border-t border-rais-soft-gold shadow-[0_-4px_20px_rgba(0,0,0,0.3)]"
+      className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 sm:px-6 sm:py-5 bg-rais-soft-gold border-t border-black/20 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]"
       role="dialog"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-desc"
@@ -54,7 +54,7 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={accept}
-            className="px-4 py-2 rounded-lg text-sm font-semibold bg-rais-terracotta text-white border border-rais-terracotta hover:bg-rais-terracotta/90 hover:scale-[1.02] transition-all duration-200"
+            className="px-4 py-2 rounded-lg text-sm font-semibold bg-black text-white border border-black hover:bg-black/90 hover:scale-[1.02] transition-all duration-200"
           >
             Aceptar
           </button>

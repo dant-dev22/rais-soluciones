@@ -4,8 +4,6 @@ import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import TrabajosSection from '@/components/TrabajosSection'
 import Quote from '@/components/Quote'
-import Contact from '@/components/Contact'
-
 export default function Home() {
   return (
     <>
@@ -27,7 +25,7 @@ export default function Home() {
             contactPoint: {
               '@type': 'ContactPoint',
               contactType: 'customer service',
-              url: 'https://raisstudio.com#contacto',
+              url: 'https://raisstudio.com',
             },
           }),
         }}
@@ -37,7 +35,6 @@ export default function Home() {
         <Services />
         <TrabajosSection />
         <Quote />
-        <Contact />
       </div>
     </>
   )

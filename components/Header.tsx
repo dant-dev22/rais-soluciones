@@ -40,13 +40,6 @@ export default function Header() {
           >
             Portfolio
           </a>
-          <a
-            href="#contacto"
-            onClick={(e) => handleNavClick(e, 'contacto')}
-            className="text-sm lg:text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
-          >
-            Contacto
-          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -91,13 +84,6 @@ export default function Header() {
               className="text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
             >
               Portfolio
-            </a>
-            <a
-              href="#contacto"
-              onClick={(e) => handleNavClick(e, 'contacto')}
-              className="text-base text-rais-offwhite/80 hover:text-rais-soft-gold hover:scale-105 transition-all duration-200 cursor-pointer inline-block"
-            >
-              Contacto
             </a>
           </div>
         </div>
